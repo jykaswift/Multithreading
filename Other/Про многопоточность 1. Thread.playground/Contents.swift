@@ -106,11 +106,13 @@ var sharedVariable = 0
 
 func threadFunction() {
     pthread_mutex_lock(&mutex)
-    for _ in 1...1000 {
+    for _ in 1...50 {
+        print(Thread.current)
         let temp = sharedVariable
         sharedVariable = temp + 1
     }
     pthread_mutex_unlock(&mutex)
+
 }
 
 // Создаем два потока
